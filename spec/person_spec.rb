@@ -6,6 +6,11 @@ describe Person do
     expect(person.dob).to eq nil
   end
 
+  it "should give us a person's full name" do
+    person = Person.new("Serah", "Farron")
+    expect(person.fullname).to eq "Serah Farron"
+  end
+
   it "should allow us to add an email" do
     person = Person.new("Serah", "Farron")
     person.add_email "nora@bodhum.net"
@@ -16,5 +21,19 @@ describe Person do
     person = Person.new("Serah", "Farron")
     person.add_phone "5656424"
     expect(person.phone_numbers).to eq ["5656424"]
+  end
+
+  it "should allow us to delete an email" do
+    person = Person.new("Serah", "Farron")
+    person.add_email "nora@bodhum.net"
+    person.remove_email 0
+    expect(person.emails).to eq []
+  end
+
+  it "should allow us to remove a phone number" do
+    person = Person.new("Serah", "Farron")
+    person.add_phone "5656424"
+    person.remove_phone 0
+    expect(person.phone_numbers).to eq []
   end
 end

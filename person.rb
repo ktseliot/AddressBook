@@ -10,6 +10,10 @@ class Person
     @phone_numbers = []
   end
 
+  def fullname
+    @first_name + ' ' + @surname
+  end
+
   def emails
     @emails
   end
@@ -28,5 +32,9 @@ class Person
 
   def remove_phone(val)
     @phone_numbers.delete_at(val)
+  end
+
+  def to_s
+    "#{@fullname} was born on #{@dob}.\n Their email addresses are:"
   end
 end
