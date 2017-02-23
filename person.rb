@@ -1,3 +1,5 @@
+require 'date'
+
 class Person
   attr_accessor :first_name, :surname, :fullname, :dob
   attr_reader :emails, :phone_numbers
@@ -5,7 +7,7 @@ class Person
   def initialize(first_name, surname, dob=nil)
     @first_name = first_name
     @surname = surname
-    @dob = dob
+    @dob = Date.parse(dob) if dob
     @emails = []
     @phone_numbers = []
   end
@@ -45,12 +47,13 @@ class Person
   end
 
   def print_details
-    print "#{@fullname}\n
-    ----------\n
-    Date of Birth: #{@dob}\n\n
-    Email Addresses:\n"
+    puts ""
+    puts "#{fullname}"
+    puts "-" * fullname.length
+    puts "Date of Birth: #{@dob}"
+    puts "Email Addresses:\n"
     @emails.each do |email|
-      puts "- " + email
+      puts "- {#email}"
     end
     "\nPhone Numbers:\n"
     @phone_numbers.each do |num|
@@ -62,7 +65,7 @@ end
 class FamilyMember < Person
   attr_accessor :relationship
 
-  def initialize(first_name, surname, dob=nil)
-    @relationship = nil
+  def initialize(first_name, surname, dob=nil, relationship=nil)
+    @relationship = relationship
   end
 end
