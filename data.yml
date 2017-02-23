@@ -1,0 +1,19 @@
+people:
+  - fname: Katie
+    surname: Delaney
+    dob: 1 Jan 1990
+    emails:
+    - kitkat@example.com
+    - katastrophe@work.com
+    phones:
+    - 077123435
+    - 021969696
+  - fname: Sarah
+    surname: Loaghaire
+    dob: 1 Mar 1990
+    emails:
+    - slear@example.com
+    - sarahl@work.com
+    phones:
+    - 077124295
+    - 021922306

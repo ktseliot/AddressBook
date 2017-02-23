@@ -53,7 +53,7 @@ class Person
     puts "Date of Birth: #{@dob}"
     puts "Email Addresses:\n"
     @emails.each do |email|
-      puts "- {#email}"
+      puts "- #{email}"
     end
     "\nPhone Numbers:\n"
     @phone_numbers.each do |num|
