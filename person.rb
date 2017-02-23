@@ -26,6 +26,10 @@ class Person
     @emails.delete_at(val)
   end
 
+  def phone_numbers
+    @phone_numbers
+  end
+
   def add_phone(string)
     @phone_numbers << string
   end
@@ -35,6 +39,22 @@ class Person
   end
 
   def to_s
-    "#{@fullname} was born on #{@dob}.\n Their email addresses are:"
+    "#{@first_name} #{@surname} was born on #{@dob}.\n
+    Their email addresses are: #{@emails}.\n
+    Their phone numbers are #{@phone_numbers}."
+  end
+
+  def print_details
+    print "#{@fullname}\n
+    ----------\n
+    Date of Birth: #{@dob}\n\n
+    Email Addresses:\n"
+    @emails.each do |email|
+      puts "- " + email
+    end
+    "\nPhone Numbers:\n"
+    @phone_numbers.each do |num|
+      puts "- " + num
+    end
   end
 end

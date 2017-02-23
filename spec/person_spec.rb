@@ -36,4 +36,13 @@ describe Person do
     person.remove_phone 0
     expect(person.phone_numbers).to eq []
   end
+
+  it "should list the person's details" do
+    person = Person.new("Serah", "Farron", "28-05-18BF")
+    person.add_phone "5656424"
+    person.add_email "nora@bodhum.net"
+    expect(person.to_s).to eq "Serah Farron was born on 28-05-18BF.\n
+    Their email addresses are: [\"nora@bodhum.net\"].\n
+    Their phone numbers are [\"5656424\"]."
+  end
 end
