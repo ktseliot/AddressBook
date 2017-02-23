@@ -58,3 +58,11 @@ class Person
     end
   end
 end
+
+class FamilyMember < Person
+  attr_accessor :relationship
+
+  def initialize(first_name, surname, dob=nil)
+    @relationship = nil
+  end
+end
