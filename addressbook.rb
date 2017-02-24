@@ -1,4 +1,6 @@
 require "./person.rb"
+require 'yaml'
+require 'pry'
 
 class AddressBook
   attr_reader :address_book
@@ -12,16 +14,21 @@ class AddressBook
   end
 
   def load_yaml(file)
+    data = YAML.load_file(file)
+    counter = 0
+
     data["people"].each do |person|
-      counter = 0
-      @address_book << Person.new person["first_name"], person["surname"], person["dob"]
+      p = Person.new person["first_name"], person["surname"], person["dob"]
+
       person["emails"].each do |email|
-        @address_book[counter].add_email(email)
+       p.add_email(email)
       end
-      person["phone_numbers"].each do |phone|
-        @address_book[counter].add_phone(phone)
+
+      person["phones"].each do |phone|
+       p.add_phone(phone)
       end
-      counter +=1
+
+      @address_book << p
     end
   end
 end
